@@ -1,0 +1,12 @@
+npm i express
+npm i mongoose
+npm i mongoose-pagination
+npm i multer
+npm i moment
+npm i validator
+npm i bcrypt-nodejs
+npm i jwt-simple
+npm i cors
+npm i nodemon --save-dev
+
+"start" : "nodemon index.js"
