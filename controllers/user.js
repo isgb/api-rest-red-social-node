@@ -1,6 +1,8 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
+const jwt = require("../services/jwt");
+
 const pruebasUsuario = (req, res) => {
   res.status(200).send({
     message: "Mensaje enviado desde los controlles user.js",
@@ -18,32 +20,30 @@ const register = async (req, res) => {
     });
   }
 
-  // Crear objeto d eusuario
+  // Crear objeto de usuario
   let user_to_save = new User(params);
   try {
     // Control usuarios duplicados
-    User.find({
+    let duplicated_user = await User.find({
       $or: [
         { email: user_to_save.email.toLowerCase() },
         { nick: user_to_save.nick.toLowerCase() },
       ],
     }).exec();
 
-    if (duplicated_user && duplicated_user >= 1) {
+    if (duplicated_user && duplicated_user.length >= 1) {
       return res.status(400).json({
         status: "error",
-        message: "El usuario a sido registrado",
+        message: "El usuario ya ha sido registrado",
       });
     }
 
     // Cifrar la contraseña
-    // Campo a hashear,numero de veces y luego callback recibe error y hash
-    // O guardar en variable e igualarlo en params.password
     let pwd = await bcrypt.hash(params.password, 10);
     params.password = pwd;
 
     // Crear objeto de usuario
-    const user_to_save = new User(params);
+    user_to_save = new User(params);
 
     // Guardar usuario en la BD
     let user_saved = await user_to_save.save();
@@ -80,9 +80,7 @@ const login = async (req, res) => {
     });
   }
 
-  let user_searched = await User.find({ email: params.email })
-    // Con select y el cero quitamos la password para que no nos lo devuelva
-    .select({ password: 0 });
+  let user_searched = await User.findOne({ email: params.email });
 
   if (!user_searched) {
     return res.status(404).send({
@@ -92,7 +90,7 @@ const login = async (req, res) => {
   }
 
   // Comprobar la contraseña
-  const pwd = bcrypt.compareSync(params.password, searched_user.password);
+  const pwd = bcrypt.compareSync(params.password, user_searched.password);
   // CompareSync regresa true o false
   if (!pwd) {
     return res.status(404).send({
@@ -101,17 +99,17 @@ const login = async (req, res) => {
     });
   }
 
-  // Si es correcta devolver  token
-  const token = false;
+  // Si es correcta devolver token
+  const token = jwt.createToken(user_searched);
 
   // Devolver los datos del usuario
   return res.status(200).json({
     status: "success",
     message: "Successful login",
     searched_user: {
-      id: searched_user._id,
-      name: searched_user.name,
-      nick: searched_user.nick,
+      id: user_searched._id,
+      name: user_searched.name,
+      nick: user_searched.nick,
     },
     token,
   });
