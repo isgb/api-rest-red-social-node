@@ -1,0 +1,256 @@
+[{
+  "_id": {
+    "$oid": "67d1f89973ad60673cbab074"
+  },
+  "name": "Victor",
+  "surname": "Robles",
+  "nick": "victorroblesweb",
+  "email": "victor@victor.com",
+  "password": "$2b$10$6XjKa9XZjA4rMzSxFcVymO3hZyV.IRubyjjeAk9Ro1WfsRpDMpMX6",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-12T21:11:53.089Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d3531aab32a5b56dbe1414"
+  },
+  "name": "Antonio",
+  "surname": "Velez",
+  "nick": "antoniovelez",
+  "email": "antonio@antonio.com",
+  "password": "$2b$10$rP0prK5opXUqKsPxRMNdhOlsIBaSRjJ5pIMpLp6wrclEI6pOHsOMC",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:50:18.065Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d3532aab32a5b56dbe1418"
+  },
+  "name": "David",
+  "surname": "Lopez",
+  "nick": "davidlopez",
+  "email": "david@david.com",
+  "password": "$2b$10$rUQjj8tsXCwZy.h6BJjrn.QxeMn2l7hdH6c/rwTTwgdIpj9.YlG..",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:50:34.980Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d35341ab32a5b56dbe141c"
+  },
+  "name": "Marta",
+  "surname": "Lopez",
+  "nick": "martalopez",
+  "email": "marta@marta.com",
+  "password": "$2b$10$31kkpGhqQOz53eenfQAQTOTtznrQSgYofXjuUC36TyGHRIyXbq6I6",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:50:57.149Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d35360ab32a5b56dbe1420"
+  },
+  "name": "Lionel",
+  "surname": "Messi",
+  "nick": "leomessi",
+  "email": "leo@leo.com",
+  "password": "$2b$10$.7m4cNh8RkBjRVezGmR76ua8D4LvTd9DpLQ0CoY4pVo4pxJ7qR6jq",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:51:28.310Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d3537fab32a5b56dbe1424"
+  },
+  "name": "Iker",
+  "surname": "Casillas",
+  "nick": "ikercasillas",
+  "email": "iker@iker.com",
+  "password": "$2b$10$8aPs9f3wX4yb2DjxB26Mmemn44txl/9YkDkMW37opOZjf4w0kpBqC",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:51:59.266Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d353baab32a5b56dbe1428"
+  },
+  "name": "Sarah",
+  "surname": "Connor",
+  "nick": "sarahconnor",
+  "email": "sarah@sarah.com",
+  "password": "$2b$10$FKegZIio2ulV34GplEMiE.TMeUTVUQPEIhrKJRfwkdwmhVT.7rMwu",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:52:58.619Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d353d1ab32a5b56dbe142c"
+  },
+  "name": "Jonh",
+  "surname": "Connor",
+  "nick": "jonhconnor",
+  "email": "jonh@jonh.com",
+  "password": "$2b$10$7sg4/JhBqCH4H0j7FN//.OroHnTQEvlqcgTM.juk89SeuS8/bJnay",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:53:21.735Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d353ffab32a5b56dbe1430"
+  },
+  "name": "Silvester",
+  "surname": "Stalone",
+  "nick": "silvesterstalone",
+  "email": "silvester@silvester.com",
+  "password": "$2b$10$D.zE4FqzDi0P06mViKNdje9WOTb2pRAFM9qiQ/T31kqeP/9ZdrV5O",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:54:07.507Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d35423ab32a5b56dbe1434"
+  },
+  "name": "Arnold",
+  "surname": "Sw",
+  "nick": "arnold",
+  "email": "arnold@arnold.com",
+  "password": "$2b$10$onBzSY1.MPnUCNsPgMatgO70G56RT/PLESxnX9QoA95iTwyCqQL42",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:54:43.587Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d35446ab32a5b56dbe1438"
+  },
+  "name": "Al",
+  "surname": "Pacino",
+  "nick": "alpacino",
+  "email": "al@al.com",
+  "password": "$2b$10$QNItQK6DaM2qy8n6Wc9C1uaErM1zstFmF125LtPpFk7oEnwoSljd6",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:55:18.430Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d3546fab32a5b56dbe143c"
+  },
+  "name": "Robert",
+  "surname": "De Niro",
+  "nick": "robertdeniro",
+  "email": "robert@robert.com",
+  "password": "$2b$10$d4Lw7PScUE9/zUXRYby1V.tbVmiJe7Co4WqObMsDde4ucP1qsFjc6",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:55:59.901Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d35490ab32a5b56dbe1440"
+  },
+  "name": "Neo",
+  "surname": "Matrix",
+  "nick": "neomatrix",
+  "email": "neo@neo.com",
+  "password": "$2b$10$yfKe1Ec1AHlCVcLh4wiIrOf5xMBJqnw7LkjU53SM1jbygMg225wRa",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:56:32.363Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d354acab32a5b56dbe1444"
+  },
+  "name": "Morfeo",
+  "surname": "Matrix",
+  "nick": "morfeo",
+  "email": "morfeo@morfeo.com",
+  "password": "$2b$10$Y.9Iljm8ch8uweD1X0gsCO8uUjeMIErmuYRZr/o93n5U/wCqQrILe",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:57:00.125Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d354c7ab32a5b56dbe1448"
+  },
+  "name": "Ray",
+  "surname": "Liota",
+  "nick": "ray",
+  "email": "ray@ray.com",
+  "password": "$2b$10$GdfpX1WpcCvl.Pfw0b8cguulyqakLI4cwnh4qH19x4rcoLkcSPRF.",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:57:27.195Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d354deab32a5b56dbe144c"
+  },
+  "name": "Trinity",
+  "surname": "Matrix",
+  "nick": "trinity",
+  "email": "trinity@trinity.com",
+  "password": "$2b$10$tMsYJhivCTCuuGErJ29Xa.lJ/bNylC9jAIdyFMEq4P8TcnytE16Ly",
+  "role": "role_user",
+  "image": "default.png",
+  "created_at": {
+    "$date": "2025-03-13T21:57:50.750Z"
+  },
+  "__v": 0
+}]
