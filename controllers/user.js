@@ -1,9 +1,10 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+// const mongoosePagination = require("mongoose-pagination");
 
 const jwt = require("../services/jwt");
 
-const pruebasUsuario = (req, res) => {
+const pruebasUsuario = (_, res) => {
   res.status(200).send({
     message: "Mensaje enviado desde los controlles user.js",
   });
@@ -116,8 +117,83 @@ const login = async (req, res) => {
 
 };
 
+const profile = async (req, res) => {
+  // Recibir el parámetro del id del usuario
+  let id = req.params.id;
+
+  // Consulta para sacar los datos del usuario
+  try {
+    let user = await User.findById(id)
+    .select({ password: 0, role:0 })
+
+    if (!user) {
+      return res.status(404).send({
+        message: "El usuario no existe",
+        status: "error",
+      });
+    }
+
+    // Devolver resultado
+    return res.status(200).send({
+      status: "success",
+      user,
+    });
+  } catch (err) {
+    return res.status(500).send({
+      message: "Error en la petición",
+      status: "error",
+    });
+  }
+}
+
+const list = async (req, res) => {
+  // Controlar en que pagina estamos
+  let page = 1;
+  if (req.params.page) {
+    page = req.params.page;
+  }
+
+  page = parseInt(page);
+  
+  // Consulta con mongoose para sacar los usuarios
+  let items_per_page = 5;
+  try {
+    const users = await User.find()
+      .select({ password: 0, role: 0 })
+      .sort("_id")
+      .skip((page - 1) * items_per_page)
+      .limit(items_per_page);
+
+    const total = await User.countDocuments();
+
+    if (!users) {
+      return res.status(404).send({
+        status: "error",
+        message: "No hay usuarios disponibles",
+      });
+    }
+
+    return res.status(200).send({
+      status: "success",
+      users,
+      page,
+      items_per_page,
+      total,
+      pages: Math.ceil(total / items_per_page),
+    });
+  } catch (err) {
+    return res.status(500).send({
+      status: "error",
+      message: "Error en la petición",
+      err
+    });
+  }
+}
+
 module.exports = {
   pruebasUsuario,
   register,
   login,
+  profile,
+  list
 };
