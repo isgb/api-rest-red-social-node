@@ -190,10 +190,59 @@ const list = async (req, res) => {
   }
 }
 
+const update = async(req,res) => {
+  // Recoger datos del usuario
+  let userIdentity = req.user;
+  let userToUpdate = req.body;
+
+  // Eliminar campos sobrantes
+  delete userToUpdate.iat;
+  delete userToUpdate.exp;
+  delete userToUpdate.role;
+  delete userToUpdate.image;
+
+  // Comprobar si usuario ya existe
+    let duplicated_user = await User.find({
+      $or: [
+        { email: userToUpdate.email.toLowerCase() },
+        { nick: userToUpdate.nick.toLowerCase() },
+      ],
+    }).exec();
+
+    let userIsset = false;
+    duplicated_user.forEach((user) => {
+      if (user && user._id != userIdentity.id) {
+        userIsset = true;
+      }
+    });
+
+    if (userIsset) {
+      return res.status(400).json({
+        status: "error",
+        message: "El usuario ya ha sido registrado",
+      });
+    }
+
+    // Cifrar la contraseña
+    if (userToUpdate.password) {
+      let pwd = await bcrypt.hash(userToUpdate.password, 10);
+      userToUpdate.password = pwd;
+    }
+
+    // Actualizar usuario
+    return res.status(200).send({
+      status: "success",
+      message: "Update action",
+      userToUpdate,
+    });
+
+}
+
 module.exports = {
   pruebasUsuario,
   register,
   login,
   profile,
-  list
+  list,
+  update
 };
