@@ -124,7 +124,7 @@ const profile = async (req, res) => {
   // Consulta para sacar los datos del usuario
   try {
     let user = await User.findById(id)
-    .select({ password: 0, role:0 })
+      .select({ password: 0, role: 0 })
 
     if (!user) {
       return res.status(404).send({
@@ -154,7 +154,7 @@ const list = async (req, res) => {
   }
 
   page = parseInt(page);
-  
+
   // Consulta con mongoose para sacar los usuarios
   let items_per_page = 5;
   try {
@@ -190,10 +190,12 @@ const list = async (req, res) => {
   }
 }
 
-const update = async(req,res) => {
+const update = async (req, res) => {
   // Recoger datos del usuario
   let userIdentity = req.user;
   let userToUpdate = req.body;
+
+  console.log("userIdentity: ",userIdentity);
 
   // Eliminar campos sobrantes
   delete userToUpdate.iat;
@@ -202,40 +204,64 @@ const update = async(req,res) => {
   delete userToUpdate.image;
 
   // Comprobar si usuario ya existe
-    let duplicated_user = await User.find({
-      $or: [
-        { email: userToUpdate.email.toLowerCase() },
-        { nick: userToUpdate.nick.toLowerCase() },
-      ],
-    }).exec();
+  let duplicated_user = await User.find({
+    $or: [
+      { email: userToUpdate.email.toLowerCase() },
+      { nick: userToUpdate.nick.toLowerCase() },
+    ],
+  }).exec();
 
-    let userIsset = false;
-    duplicated_user.forEach((user) => {
-      if (user && user._id != userIdentity.id) {
-        userIsset = true;
-      }
+  let userIsset = false;
+  duplicated_user.forEach((user) => {
+    if (user && user._id != userIdentity.id) {
+      userIsset = true;
+    }
+  });
+
+  if (userIsset) {
+    return res.status(400).json({
+      status: "error",
+      message: "El usuario ya ha sido registrado",
     });
+  }
 
-    if (userIsset) {
-      return res.status(400).json({
+  // Cifrar la contraseña
+  if (userToUpdate.password) {
+    let pwd = await bcrypt.hash(userToUpdate.password, 10);
+    userToUpdate.password = pwd;
+  }
+
+  // Buscar y actualizar
+  try {
+    const userUpdated = await User.findByIdAndUpdate(
+      userIdentity.id,
+      userToUpdate,
+      { new: true }
+    );
+
+    if (!userUpdated) {
+      return res.status(404).send({
         status: "error",
-        message: "El usuario ya ha sido registrado",
+        message: "No se ha podido actualizar el usuario",
       });
     }
 
-    // Cifrar la contraseña
-    if (userToUpdate.password) {
-      let pwd = await bcrypt.hash(userToUpdate.password, 10);
-      userToUpdate.password = pwd;
-    }
-
-    // Actualizar usuario
+    // Devolver resultado
     return res.status(200).send({
       status: "success",
-      message: "Update action",
-      userToUpdate,
+      user: userUpdated,
     });
+  } catch (err) {
+    return res.status(500).send({
+      status: "error",
+      message: "Error en la petición",
+    });
+  }
 
+}
+
+const upload = async (req,res) =>{
+  
 }
 
 module.exports = {
@@ -244,5 +270,6 @@ module.exports = {
   login,
   profile,
   list,
-  update
+  update,
+  upload
 };

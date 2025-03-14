@@ -8,7 +8,7 @@ const secret = "CALVE_SECRETA_DEL_PROYECTO_DE_LA_RED_SOCIAL_987987";
 // Crear una funcion para generar tokens
 const createToken = (user) => {
     const payload = {
-        sub: user._id,
+        id: user._id,
         name: user.name,
         surname: user.surname,
         nick: user.nick,
