@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 // const mongoosePagination = require("mongoose-pagination");
 
 const jwt = require("../services/jwt");
+const fs = require("fs");
+const path = require("path");
 
 const pruebasUsuario = (_, res) => {
   res.status(200).send({
@@ -261,7 +263,77 @@ const update = async (req, res) => {
 }
 
 const upload = async (req,res) =>{
-  
+
+  if(!req.file) {
+    return res.status(400).send({
+      status: "error",
+      message: "No se han subido archivos",
+    });
+  }
+
+  let image = req.file.originalname;
+
+  const imageSplit = image.split("\.");
+  const extension = imageSplit[1];
+
+  // Comprobar la extensión
+  const valid_extensions = ["png", "jpg", "jpeg", "gif"];
+  if (!valid_extensions.includes(extension)) {
+    const filePath = req.file.path;
+    const fileDeleted = fs.unlinkSync(filePath);
+
+    return res.status(400).send({
+      status: "error",
+      message: "La extensión no es válida",
+    });
+  }
+
+  //Si es correcta, guardar imagen en la base de datos
+  try {
+    const userUpdated = await User.findByIdAndUpdate(
+      req.user.id,
+      { image: req.file.filename },
+      { new: true }
+    );
+
+    if (!userUpdated) {
+      return res.status(500).send({
+        status: "error",
+        message: "Error al guardar la imagen de usuario",
+      });
+    }
+
+    return res.status(200).send({
+      status: "success",
+      user: userUpdated,
+      file: req.file,
+    });
+  } catch (err) {
+    return res.status(500).send({
+      status: "error",
+      message: "Error al guardar la imagen de usuario",
+      error: err,
+    });
+  }
+}
+
+const avatar = async (req, res) => {
+  // Recoger el parámetro de la url
+  const file = req.params.file;
+
+  // Comprobar si existe el fichero
+  const filePath = "./uploads/avatars/" + file;
+  fs.stat(filePath, (err, exists) => {
+    if (err || !exists) {
+      return res.status(404).send({
+        status: "error",
+        message: "No existe la imagen",
+      });
+    }
+
+    // Devolver el archivo
+    return res.sendFile(path.resolve(filePath));
+  });
 }
 
 module.exports = {
@@ -271,5 +343,6 @@ module.exports = {
   profile,
   list,
   update,
-  upload
+  upload,
+  avatar
 };
