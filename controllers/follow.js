@@ -8,14 +8,129 @@ const pruebasFollow = (req,res) => {
     })
 }
 
-const save = (req, res) => {
+const save = async (req, res) => {
     
     // Recoger los datos de la petición
     const params = req.body; // Recogemos el body de la petición
 
+    // Sacar el id del usuario que sigue
+    const identity = req.user; // Sacamos el id del usuario que sigue desde el token
+
+    // Crear objeto con modelo follow
+    let userToFollow = new Follow({
+        user: identity.id, // Usuario que sigue
+        followed: params.followed // Usuario seguido
+    });
+
+    // Guardar objeto en bbdd
+    try {
+        const followStored = await userToFollow.save();
+        if (!followStored) {
+            return res.status(400).send({
+                status: 'error',
+                message: 'Error al seguir el usuario'
+            });
+        }
+        return res.status(200).send({
+            status: 'success',
+            message: 'Usuario seguido correctamente',
+            follow: followStored
+        });
+    } catch (err) {
+        return res.status(500).send({
+            status: 'error',
+            message: 'Error al seguir el usuario',
+            error: err.message
+        });
+    }
+}
+
+const unfollow =async (req, res)=>{
+    //recoger el id del usuario identificado
+    const userId = req.user.id;
+    //recoger el id del usuario que sigo y quiero dejar de seguir
+    const followedId = req.params.id;
+    //find de las coincidencias y hacer un remove
+    try {
+        let unFollowUser = await Follow.find({
+            "user": userId,
+            "followed":followedId
+        }).deleteOne()
+        return res.status(200).send({
+            status:"successs",
+            message:"Follow eliminado correctamente",
+            unFollowUser
+        });
+    } catch (error) {
+        if (error || !followDeleted) {
+            return res.status(500).send({
+                status:"error",
+                message:"no has dejado de seguir a nadie"
+            })
+        }
+    }
+}
+
+// Accion de listado de usuarios que cualquier usuario esta siguiendo
+const following = async (req, res) => {
+    // Sacar el id del usuario que sigue
+    const userId = req.user.id; // Sacamos el id del usuario que sigue desde el token
+
+    // Comprobar si existe el usuario
+    try {
+        const user = await User.findById(userId).populate('followed').exec();
+        if (!user) {
+            return res.status(404).send({
+                status: 'error',
+                message: 'Usuario no encontrado'
+            });
+        }
+        return res.status(200).send({
+            status: 'success',
+            message: 'Usuarios seguidos',
+            followed: user.followed
+        });
+    } catch (err) {
+        return res.status(500).send({
+            status: 'error',
+            message: 'Error al listar los usuarios seguidos',
+            error: err.message
+        });
+    }
+}
+
+// Accion de listado de usuarios que siguen a cualquier otro usuario (soy seguido, mis seguidores)
+const followers = async (req, res) => {
+    // Sacar el id del usuario que sigue
+    const userId = req.user.id; // Sacamos el id del usuario que sigue desde el token
+
+    // Comprobar si existe el usuario
+    try {
+        const user = await User.findById(userId).populate('user').exec();
+        if (!user) {
+            return res.status(404).send({
+                status: 'error',
+                message: 'Usuario no encontrado'
+            });
+        }
+        return res.status(200).send({
+            status: 'success',
+            message: 'Usuarios que me siguen',
+            followers: user.user
+        });
+    } catch (err) {
+        return res.status(500).send({
+            status: 'error',
+            message: 'Error al listar los usuarios que me siguen',
+            error: err.message
+        });
+    }
 }
 
 module.exports = {
     pruebasFollow,
-    save
+    save,
+    unfollow,
+    following,
+    followers
 }

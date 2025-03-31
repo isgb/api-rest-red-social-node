@@ -236,7 +236,7 @@ const update = async (req, res) => {
   // Buscar y actualizar
   try {
     const userUpdated = await User.findByIdAndUpdate(
-      userIdentity.id,
+      {_id:userIdentity.id},
       userToUpdate,
       { new: true }
     );
@@ -291,7 +291,7 @@ const upload = async (req,res) =>{
   //Si es correcta, guardar imagen en la base de datos
   try {
     const userUpdated = await User.findByIdAndUpdate(
-      req.user.id,
+      {_id:req.user.id},
       { image: req.file.filename },
       { new: true }
     );
