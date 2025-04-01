@@ -1,0 +1,602 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1739559790017
+  modified: 1739559790017
+collection:
+  - url: http://localhost:3000/
+    name: New Request
+    meta:
+      id: req_8f96ecb72361472e8944b74a47035376
+      created: 1739559851554
+      modified: 1739559939937
+      isPrivate: false
+      sortKey: -1739559851554
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "message": "Necesito ayuda con la base de datos"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/apis/crear
+    name: New Request
+    meta:
+      id: req_3e9b3440448245a3850e01bd82a3fcbf
+      created: 1740172613843
+      modified: 1740521021122
+      isPrivate: false
+      sortKey: -1740172613843
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - name: titulo
+          value: Master en PHP
+          id: pair_98256892a08c429c964f5a3ab441840a
+          type: text
+          multiline: true
+        - id: pair_f91c0ede424b449781a286a34356ea8e
+          name: contenido
+          value: Contenido de el articulo como hacer un sitio web completo
+          disabled: false
+          type: text
+          multiline: true
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/10.3.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/apis/articulo/67b8f2205b650fbe37b06b73
+    name: New Request
+    meta:
+      id: req_46703e3e3d7c4869aa1b3dd246ad1f16
+      created: 1740431876476
+      modified: 1740519795676
+      isPrivate: false
+      sortKey: -1740431876476
+    method: DELETE
+    body:
+      mimeType: application/json
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/apis/crear
+    name: New Request
+    meta:
+      id: req_d12cdb1cc987476eaa2f61a7899fd2e8
+      created: 1740776683271
+      modified: 1740776688059
+      isPrivate: false
+      sortKey: -1740776683272
+    method: POST
+    headers:
+      - name: User-Agent
+        value: insomnia/10.3.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/user/register
+    name: New Request
+    meta:
+      id: req_11d0f9a91f0447cf8439985696bbcaa5
+      created: 1741297042819
+      modified: 1741910434366
+      isPrivate: false
+      sortKey: -1741297042819
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_4fde9113657a4a3582b5093368694c2f
+          name: name
+          value: Trinity1
+          disabled: false
+        - id: pair_a2034189287545b5a6060e97165e6638
+          name: surname
+          value: Matrix1
+          disabled: false
+        - id: pair_9e5762964f3743db859432bba46a52ab
+          name: nick
+          value: trinity1
+          disabled: false
+        - id: pair_e512ef1e55bc4e7daeb89fc159d67b2e
+          name: email
+          value: trinity1@trinity1.com
+          disabled: false
+        - id: pair_b7d39d50ecb64a94b2685e3193c6e658
+          name: password
+          value: contraseña
+          disabled: false
+        - id: pair_e3988b9ff6e047c9afc5c4a2e2a9d292
+          name: bio
+          value: hola soy trinity1
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/10.3.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/user/list/4
+    name: New Request
+    meta:
+      id: req_9b97943ca9204151a698d575107caf4e
+      created: 1741813428289
+      modified: 1741910266234
+      isPrivate: false
+      sortKey: -1741813428289
+    method: GET
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_b4b8b0032ba84bd48885ea9be841c4d1
+          name: email
+          value: victor@victor.com
+          disabled: false
+        - id: pair_102378c8f32647d085cb2be2120e505e
+          name: password
+          value: contraseña
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_14ea55089d0b4a958c7a118aeb021da0
+      - name: User-Agent
+        value: insomnia/10.3.1
+        id: pair_4536406fe0f145f0b3bdc5e62c2dbc5a
+      - id: pair_0b00aa7d8a984bc5aee9f43f6c1a33a5
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2N2QxZjg5OTczYWQ2MDY3M2NiYWIwNzQiLCJuYW1lIjoiVmljdG9yIiwic3VybmFtZSI6IlJvYmxlcyIsImVtYWlsIjoidmljdG9yQHZpY3Rvci5jb20iLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2UiOiJkZWZhdWx0LnBuZyIsImlhdCI6MTc0MTgxNDA2OCwiZXhwIjoxNzQ0NDA2MDY4fQ.hhmaHAfv8CALZBPXFyxJwJUxrGRtmm4Jr2NiqUu6QNA
+        disabled: false
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/user/login
+    name: New Request
+    meta:
+      id: req_b2786f194f7f431eb42e06792a02c2a9
+      created: 1741910658425
+      modified: 1743110662298
+      isPrivate: false
+      sortKey: -1741910658425
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_fda0cc553cb94a9a8373a6ff684669f1
+          name: email
+          value: trinity1@trinity1.com
+          disabled: false
+        - id: pair_663e00993a60495da9e505e3c109c1d3
+          name: password
+          value: contraseña
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/10.3.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/user/update
+    name: New Request
+    meta:
+      id: req_0445203ac3124bba939624203f76207a
+      created: 1741910728469
+      modified: 1743110499791
+      isPrivate: false
+      sortKey: -1741910728469
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_8c13858f0433456f81aeb517571fd32d
+      - name: User-Agent
+        value: insomnia/10.3.1
+        id: pair_bf6d2a9978d54d89bc5df77c085a2376
+      - id: pair_0f6cc7844d6749929d7ddcaf8f9d4068
+        name: Authorization
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/user/update
+    name: New Request
+    meta:
+      id: req_1b60d827a3044194bb7b5c40bfbf4f53
+      created: 1741911885303
+      modified: 1741988793092
+      isPrivate: false
+      sortKey: -1741910728569
+    method: PUT
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_4fde9113657a4a3582b5093368694c2f
+          name: name
+          value: Trinity1010
+          disabled: false
+        - id: pair_a2034189287545b5a6060e97165e6638
+          name: surname
+          value: Matrix1010
+          disabled: false
+        - id: pair_9e5762964f3743db859432bba46a52ab
+          name: nick
+          value: trinity1010
+          disabled: false
+        - id: pair_e512ef1e55bc4e7daeb89fc159d67b2e
+          name: email
+          value: trinity1010@trinity1010.com
+          disabled: false
+        - id: pair_b7d39d50ecb64a94b2685e3193c6e658
+          name: password
+          value: contraseña
+          disabled: false
+        - id: pair_e3988b9ff6e047c9afc5c4a2e2a9d292
+          name: bio
+          value: hola soy trinity 1010
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_99d07e6441df4fc799ada16fa3cbf0a7
+      - name: User-Agent
+        value: insomnia/10.3.1
+        id: pair_31be411e44794ec79d81760018f87191
+      - id: pair_0663b928eb3e46f291857b273cf10a7e
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3ZDM1NGRlYWIzMmE1YjU2ZGJlMTQ0YyIsIm5hbWUiOiJUcmluaXR5Iiwic3VybmFtZSI6Ik1hdHJpeCIsIm5pY2siOiJ0cmluaXR5IiwiZW1haWwiOiJ0cmluaXR5QHRyaW5pdHkuY29tIiwicm9sZSI6InJvbGVfdXNlciIsImltYWdlbiI6ImRlZmF1bHQucG5nIiwiaWF0IjoxNzQxOTg4NTkwLCJleHAiOjE3NDQ1ODA1OTB9.7e0gHaig3ug4x0MDK_84UTDhbWspJzvxPmOzkjVOabk
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/user/upload
+    name: New Request
+    meta:
+      id: req_446527dd55d949cfbadb0f6eb70c4cfc
+      created: 1741989084190
+      modified: 1741989112361
+      isPrivate: false
+      sortKey: -1741910728669
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_4fde9113657a4a3582b5093368694c2f
+          name: name
+          value: Trinity1010
+          disabled: false
+        - id: pair_a2034189287545b5a6060e97165e6638
+          name: surname
+          value: Matrix1010
+          disabled: false
+        - id: pair_9e5762964f3743db859432bba46a52ab
+          name: nick
+          value: trinity1010
+          disabled: false
+        - id: pair_e512ef1e55bc4e7daeb89fc159d67b2e
+          name: email
+          value: trinity1010@trinity1010.com
+          disabled: false
+        - id: pair_b7d39d50ecb64a94b2685e3193c6e658
+          name: password
+          value: contraseña
+          disabled: false
+        - id: pair_e3988b9ff6e047c9afc5c4a2e2a9d292
+          name: bio
+          value: hola soy trinity 1010
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_99d07e6441df4fc799ada16fa3cbf0a7
+      - name: User-Agent
+        value: insomnia/10.3.1
+        id: pair_31be411e44794ec79d81760018f87191
+      - id: pair_0663b928eb3e46f291857b273cf10a7e
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3ZDM1NGRlYWIzMmE1YjU2ZGJlMTQ0YyIsIm5hbWUiOiJUcmluaXR5Iiwic3VybmFtZSI6Ik1hdHJpeCIsIm5pY2siOiJ0cmluaXR5IiwiZW1haWwiOiJ0cmluaXR5QHRyaW5pdHkuY29tIiwicm9sZSI6InJvbGVfdXNlciIsImltYWdlbiI6ImRlZmF1bHQucG5nIiwiaWF0IjoxNzQxOTg4NTkwLCJleHAiOjE3NDQ1ODA1OTB9.7e0gHaig3ug4x0MDK_84UTDhbWspJzvxPmOzkjVOabk
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/user/upload
+    name: New Request
+    meta:
+      id: req_55fc1b999d03490db70b8118db9f211a
+      created: 1743110692244
+      modified: 1743452119655
+      isPrivate: false
+      sortKey: -1743110692244
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_2bd4d93891dd4469ada4fb54950e0a16
+          name: file0
+          disabled: false
+          type: file
+          fileName: C:\Users\zentr\OneDrive\Imágenes\Acer\Acer_Wallpaper_01_3840x2400.jpg
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_1370f1339add4a678a628a837a71ce2b
+      - name: User-Agent
+        value: insomnia/11.0.1
+        id: pair_92814f0d2ca1477a94f2ac135578da2e
+      - id: pair_1bacfc64b86b4acb806dd7cd474ebef6
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3ZDM3MWIwZTc0Y2YzMTIzMGRjNmEwNiIsIm5hbWUiOiJUcmluaXR5MSIsInN1cm5hbWUiOiJNYXRyaXgxIiwibmljayI6InRyaW5pdHkxIiwiZW1haWwiOiJ0cmluaXR5MUB0cmluaXR5MS5jb20iLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2VuIjoiYXZhdGFyLTE3NDMxMTIyMTY3MjMtQWNlcl9XYWxscGFwZXJfMDFfMzg0MHgyNDAwLmpwZyIsImlhdCI6MTc0MzQ1MjA3MCwiZXhwIjoxNzQ2MDQ0MDcwfQ.QX6Lg6YyKcbwOhFVOBrKAWFf6IalGe3D_1H1jRP_Zu0
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/user/avatar/avatar-1743112212344-Acer_Wallpapdder_01_3840x2400.jpg
+    name: New Request
+    meta:
+      id: req_d96741f722044ffa858be029df69fd52
+      created: 1743112543265
+      modified: 1743113280749
+      isPrivate: false
+      sortKey: -1743112543265
+    method: GET
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_93b718177a074d419e95a918060f1c6f
+          name: file0
+          disabled: false
+          type: file
+          fileName: C:\Users\zentr\OneDrive\Imágenes\Acer\Acer_Wallpaper_01_3840x2400.jpg
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_a54b4904f20047ddb6b6349c4d8a7c40
+      - name: User-Agent
+        value: insomnia/11.0.1
+        id: pair_8b4741e29cbb4ebeb0bfb8d504fcb858
+      - id: pair_93273301816a43f6a3a0735e49429d8f
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3ZDM3MWIwZTc0Y2YzMTIzMGRjNmEwNiIsIm5hbWUiOiJUcmluaXR5MSIsInN1cm5hbWUiOiJNYXRyaXgxIiwibmljayI6InRyaW5pdHkxIiwiZW1haWwiOiJ0cmluaXR5MUB0cmluaXR5MS5jb20iLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2VuIjoiZGVmYXVsdC5wbmciLCJpYXQiOjE3NDMxMTA2NjUsImV4cCI6MTc0NTcwMjY2NX0.IC7GnI0ZjY3TGwPhv_xeXKNyYI2qdk8Noz1Hw0wSOfA
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/follow/following/67d371b0e74cf31230dc6a06/1
+    name: New Request
+    meta:
+      id: req_bbd5c9ccf9a5433ab5bedfd8117f819b
+      created: 1743452854675
+      modified: 1743541800016
+      isPrivate: false
+      sortKey: -1743452854675
+    method: GET
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_be4b44dae1e14a6cb721b4eba7c1957d
+          name: followed
+          value: 67d35490ab32a5b56dbe1440
+          disabled: true
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_7227be5dea2b4f959a365b21324bbb26
+      - name: User-Agent
+        value: insomnia/11.0.1
+        id: pair_6d43307b2b9542fdac80be15da451a73
+      - id: pair_34e086e2189348bcbc6793c9730918cb
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3ZDM3MWIwZTc0Y2YzMTIzMGRjNmEwNiIsIm5hbWUiOiJUcmluaXR5MSIsInN1cm5hbWUiOiJNYXRyaXgxIiwibmljayI6InRyaW5pdHkxIiwiZW1haWwiOiJ0cmluaXR5MUB0cmluaXR5MS5jb20iLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2VuIjoiYXZhdGFyLTE3NDM0NTIyMzY0NDQtQWNlcl9XYWxscGFwZXJfMDFfMzg0MHgyNDAwLmpwZyIsImlhdCI6MTc0MzU0MTU1NCwiZXhwIjoxNzQ2MTMzNTU0fQ.RdphRfen-Dk-nQanzxWQkuVvKY6WPU0Nbnvzfh1vVI4
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/follow/save
+    name: New Request
+    meta:
+      id: req_4dbc4678dad4405db6d43aef9fdd8fd0
+      created: 1743454378743
+      modified: 1743542134614
+      isPrivate: false
+      sortKey: -1743282698970
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_be4b44dae1e14a6cb721b4eba7c1957d
+          name: followed
+          value: 67d35341ab32a5b56dbe141c
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_7227be5dea2b4f959a365b21324bbb26
+      - name: User-Agent
+        value: insomnia/11.0.1
+        id: pair_6d43307b2b9542fdac80be15da451a73
+      - id: pair_34e086e2189348bcbc6793c9730918cb
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3ZDM3MWIwZTc0Y2YzMTIzMGRjNmEwNiIsIm5hbWUiOiJUcmluaXR5MSIsInN1cm5hbWUiOiJNYXRyaXgxIiwibmljayI6InRyaW5pdHkxIiwiZW1haWwiOiJ0cmluaXR5MUB0cmluaXR5MS5jb20iLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2VuIjoiYXZhdGFyLTE3NDM0NTIyMzY0NDQtQWNlcl9XYWxscGFwZXJfMDFfMzg0MHgyNDAwLmpwZyIsImlhdCI6MTc0MzU0MTU1NCwiZXhwIjoxNzQ2MTMzNTU0fQ.RdphRfen-Dk-nQanzxWQkuVvKY6WPU0Nbnvzfh1vVI4
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/follow/unfollow/67d1f89973ad60673cbab074
+    name: New Request
+    meta:
+      id: req_39c45e852d7a43cdb4908a68f638f885
+      created: 1743455411883
+      modified: 1743455411883
+      isPrivate: false
+      sortKey: -1743367776822.5
+    method: DELETE
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_be4b44dae1e14a6cb721b4eba7c1957d
+          name: followed
+          value: 67d35490ab32a5b56dbe1440
+          disabled: true
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_7227be5dea2b4f959a365b21324bbb26
+      - name: User-Agent
+        value: insomnia/11.0.1
+        id: pair_6d43307b2b9542fdac80be15da451a73
+      - id: pair_34e086e2189348bcbc6793c9730918cb
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3ZDM3MWIwZTc0Y2YzMTIzMGRjNmEwNiIsIm5hbWUiOiJUcmluaXR5MSIsInN1cm5hbWUiOiJNYXRyaXgxIiwibmljayI6InRyaW5pdHkxIiwiZW1haWwiOiJ0cmluaXR5MUB0cmluaXR5MS5jb20iLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2VuIjoiZGVmYXVsdC5wbmciLCJpYXQiOjE3NDMxMTA2NjUsImV4cCI6MTc0NTcwMjY2NX0.IC7GnI0ZjY3TGwPhv_xeXKNyYI2qdk8Noz1Hw0wSOfA
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3900/api/follow/unfollow/67d1f89973ad60673cbab074
+    name: New Request
+    meta:
+      id: req_38f69a8778e34d5b969b81992a505106
+      created: 1743541526862
+      modified: 1743541526862
+      isPrivate: false
+      sortKey: -1743410315748.75
+    method: GET
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_be4b44dae1e14a6cb721b4eba7c1957d
+          name: followed
+          value: 67d35490ab32a5b56dbe1440
+          disabled: true
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_7227be5dea2b4f959a365b21324bbb26
+      - name: User-Agent
+        value: insomnia/11.0.1
+        id: pair_6d43307b2b9542fdac80be15da451a73
+      - id: pair_34e086e2189348bcbc6793c9730918cb
+        name: Authorization
+        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3ZDM3MWIwZTc0Y2YzMTIzMGRjNmEwNiIsIm5hbWUiOiJUcmluaXR5MSIsInN1cm5hbWUiOiJNYXRyaXgxIiwibmljayI6InRyaW5pdHkxIiwiZW1haWwiOiJ0cmluaXR5MUB0cmluaXR5MS5jb20iLCJyb2xlIjoicm9sZV91c2VyIiwiaW1hZ2VuIjoiZGVmYXVsdC5wbmciLCJpYXQiOjE3NDMxMTA2NjUsImV4cCI6MTc0NTcwMjY2NX0.IC7GnI0ZjY3TGwPhv_xeXKNyYI2qdk8Noz1Hw0wSOfA
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1739559818448
+    modified: 1739559818448
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1739559818324
+    modified: 1739559818324
+    isPrivate: false

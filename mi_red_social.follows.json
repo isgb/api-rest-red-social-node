@@ -1,1 +1,150 @@
-[]
+[{
+  "_id": {
+    "$oid": "67ec56aa47489e72d318aac5"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d35490ab32a5b56dbe1440"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:12:11.143Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec56ee47489e72d318aac7"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:13:18.002Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec56f947489e72d318aac9"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d354deab32a5b56dbe144c"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:13:29.427Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec570147489e72d318aacb"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d354c7ab32a5b56dbe1448"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:13:37.593Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec570a47489e72d318aacd"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d354acab32a5b56dbe1444"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:13:46.775Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec571247489e72d318aacf"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d35490ab32a5b56dbe1440"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:13:54.947Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec572447489e72d318aad1"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d1f89973ad60673cbab074"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:14:12.371Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec573347489e72d318aad3"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d3531aab32a5b56dbe1414"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:14:27.367Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec576947489e72d318aad5"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d3532aab32a5b56dbe1418"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:15:21.013Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ec577747489e72d318aad7"
+  },
+  "user": {
+    "$oid": "67d371b0e74cf31230dc6a06"
+  },
+  "followed": {
+    "$oid": "67d35341ab32a5b56dbe141c"
+  },
+  "created_at": {
+    "$date": "2025-04-01T21:15:35.562Z"
+  },
+  "__v": 0
+}]
