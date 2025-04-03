@@ -4,6 +4,9 @@ const User = require('../models/user'); // Importamos el modelo de User
 // Importar dependencias
 const mongoosePaginate = require('mongoose-pagination'); // Importamos la dependencia de paginación
 
+//Importar servicios
+const followServices = require('../services/followServices'); // Importamos los servicios de follow
+
 // Acciones de prueba
 const pruebasFollow = (req,res) => {
     res.status(200).send({
@@ -97,18 +100,26 @@ const following = async (req, res) => {
     // Find a follow, porpular datos de los usuarios y paginar con mongoosePaginate
     try {
         const follows = await Follow.find({ user: userId })
-                            .populate({ path: 'followed', select: '-password -__v -role' })
-                            .paginate(page, itemsPerPage).exec();
+                    .populate({ path: 'followed', select: '-password -__v -role -name' })
+                    .paginate(page, itemsPerPage).exec();
         if (!follows) {
             return res.status(404).send({
-                status: 'error',
-                message: 'No tienes usuarios seguidos'
+            status: 'error',
+            message: 'No tienes usuarios seguidos'
             });
         }
+
+        let folloUsersIds = await followServices.followUsersIds(req.user.id); // Sacamos los ids de los usuarios que sigo
+
+        const total = await Follow.countDocuments({ user: userId });
+
         return res.status(200).send({
             status: 'success',
-            message: 'Usuarios seguidos',
-            follows
+            message: 'Listado de Usuarios seguidos',
+            follows,
+            total,
+            pages: Math.ceil(total / itemsPerPage), // Total de paginas,
+            user_following: folloUsersIds.following, // Sacamos los ids de los usuarios que sigo
         });
     } catch (err) {
         return res.status(500).send({
