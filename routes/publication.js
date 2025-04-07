@@ -7,5 +7,6 @@ router.get('/prueba-publication', publicationController.pruebasPublication);
 router.post('/save', check.auth ,publicationController.save); // Guardar publicación
 router.get('/detail/:id', check.auth ,publicationController.detail); // Sacar 
 router.delete('/remove/:id', check.auth ,publicationController.remove); // Eliminar publicación
+router.get('/user/:id?/:page?', check.auth ,publicationController.user); // Sacar publicaciones de un usuario
 
 module.exports = router;

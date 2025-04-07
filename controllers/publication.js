@@ -112,9 +112,58 @@ const remove = async (req, res) => {
     }
 }
 
+// Listar publicaciones de un usuario
+const user = async (req, res) => {
+    // Recoger el id de la publicación
+    const userId = req.params.id;
+
+    // Controlar la página 
+    let page = 1;
+    if (req.params.page) {
+        page = req.params.page;
+    }
+
+    let itemsPerPage = 5; // Número de publicaciones por página
+
+    // Comprobar que existe la publicación
+    try {
+        const publication = await Publication.find({ user: userId })
+                             .sort('-created_at') // Ordenar por fecha de creación descendente
+                             .populate('user', '_id')
+                             .skip((page - 1) * itemsPerPage) // Saltar publicaciones según la página
+                             .limit(itemsPerPage); // Limitar el número de publicaciones por página
+
+        if (!publication || publication.length === 0) {
+            return res.status(404).send({
+                status: 'error',
+                message: 'No se han encontrado publicaciones'
+            });
+        }
+
+        const total = await Publication.countDocuments({ user: userId }); // Total de publicaciones del usuario
+
+        return res.status(200).send({
+            status: 'success',
+            message: 'Publicaciones encontradas',
+            page,
+            itemsPerPage,
+            total,
+            pages: Math.ceil(total / itemsPerPage), // Total de páginas
+            publication
+        });
+    } catch (err) {
+        return res.status(500).send({
+            status: 'error',
+            message: 'Error al buscar las publicaciones',
+            error: err.message
+        });
+    }
+}
+
 module.exports = {
     pruebasPublication,
     save,
     detail,
-    remove
+    remove,
+    user
 }
