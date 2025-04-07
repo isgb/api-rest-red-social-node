@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("../services/jwt");
 const fs = require("fs");
 const path = require("path");
+const followService = require("../services/followServices");
 
 const pruebasUsuario = (_, res) => {
   res.status(200).send({
@@ -135,10 +136,14 @@ const profile = async (req, res) => {
       });
     }
 
+    //Info del seguimiento
+    let followInfo = await followService.followThisUser(req.user.id, id); // Sacamos los ids de los usuarios que sigo
+
     // Devolver resultado
     return res.status(200).send({
       status: "success",
       user,
+      followInfo: followInfo.following,
     });
   } catch (err) {
     return res.status(500).send({
@@ -175,6 +180,8 @@ const list = async (req, res) => {
       });
     }
 
+    let followUsersIds = await followService.followUsersIds(req.user.id); // Sacamos los ids de los usuarios que sigo
+
     return res.status(200).send({
       status: "success",
       users,
@@ -182,6 +189,8 @@ const list = async (req, res) => {
       items_per_page,
       total,
       pages: Math.ceil(total / items_per_page),
+      user_following: followUsersIds.following, // Sacamos los ids de los usuarios que sigo
+      user_follow_me: followUsersIds.followers, // Sacamos los ids de los usuarios que me siguen
     });
   } catch (err) {
     return res.status(500).send({

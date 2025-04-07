@@ -3,8 +3,37 @@ const Follow = require('../models/follow'); // Importamos el modelo de Follow
 const followUsersIds = async (identityUserId) => {
     try {
         let following = await Follow.find({ user: identityUserId })
-                                    .select({ "followed":1 }).exec(); // Sacamos los ids de los usuarios que sigo
-        let followers = false;
+                                    .select({ "followed":1, "_id": 0 }).exec(); // Sacamos los ids de los usuarios que sigo
+        let followers = await Follow.find({ followed: identityUserId })
+                            .select({ "user":1, "_id": 0 }).exec(); // Sacamos los ids de los usuarios que me siguen                
+
+        // Convertir los ids a un array de strings
+        let followingClean = [];
+        following.forEach((follow) => {
+            followingClean.push(follow.followed);
+        });
+
+        let followersClean = [];
+        followers.forEach((follow) => {
+            followersClean.push(follow.user);
+        });
+
+        return {
+            following: followingClean,
+            followers: followersClean
+        };
+    } catch (err) {
+        console.error('Error fetching follow data:', err.message);
+        throw new Error('Error fetching follow data');
+    }
+}
+
+const followThisUser = async (identityUserId, profileUserId) => {
+    try {
+        let following = await Follow.findOne({ user: identityUserId, followed: profileUserId })
+                                    // .select({ "followed":1, "_id": 0 }).exec(); // Sacamos los ids de los usuarios que sigo
+        let followers = await Follow.findOne({ user: profileUserId, followed: identityUserId })
+                                    // .select({ "user":1, "_id": 0 }).exec(); // Sacamos los ids de los usuarios que me siguen                
 
         return {
             following,
@@ -13,33 +42,6 @@ const followUsersIds = async (identityUserId) => {
     } catch (err) {
         console.error('Error fetching follow data:', err.message);
         throw new Error('Error fetching follow data');
-    }
-}
-
-const followThisUser = async (req, res) => {
-    // Sacar el id del usuario que sigue
-    const userId = req.user.id; // Sacamos el id del usuario que sigue desde el token
-
-    // Comprobar si existe el usuario
-    try {
-        const user = await User.findById(userId).populate('user').exec();
-        if (!user) {
-            return res.status(404).send({
-                status: 'error',
-                message: 'Usuario no encontrado'
-            });
-        }
-        return res.status(200).send({
-            status: 'success',
-            message: 'Usuarios que me siguen',
-            followers: user.user
-        });
-    } catch (err) {
-        return res.status(500).send({
-            status: 'error',
-            message: 'Error al listar los usuarios que me siguen',
-            error: err.message
-        });
     }
 }
 
