@@ -166,7 +166,7 @@ const list = async (req, res) => {
   let items_per_page = 5;
   try {
     const users = await User.find()
-      .select({ password: 0, role: 0 })
+      .select({ password: 0, role: 0, email:0, role:0 })
       .sort("_id")
       .skip((page - 1) * items_per_page)
       .limit(items_per_page);
